@@ -125,6 +125,7 @@
             justify-content: space-between;
             transition: all 0.4s ease;
             backdrop-filter: blur(10px);
+            cursor: pointer;
         }
 
         .link-card:hover {
@@ -185,7 +186,7 @@
     </div>
 
     <div class="profile-area">
-        <img src="IMG-20260129-WA0042.jpg" alt="حسن رضوان" class="profile-img">
+        <img src="Img-20260129-wa0029" alt="حسن رضوان" class="profile-img">
     </div>
 
     <div class="info">
@@ -216,6 +217,14 @@
                 </div>
                 <i class="fas fa-chevron-left arrow-icon"></i>
             </a>
+
+            <div class="link-card" id="shareBtn">
+                <div class="link-content">
+                    <i class="fas fa-share-alt"></i>
+                    <span class="link-text">مشاركة الصفحة</span>
+                </div>
+                <i class="fas fa-chevron-left arrow-icon"></i>
+            </div>
         </div>
     </div>
 
@@ -223,6 +232,20 @@
         Designed by <a href="https://t.me/ZYH011">ZYH011</a>
     </div>
 </div>
+
+<script>
+    document.getElementById('shareBtn').addEventListener('click', function() {
+        if (navigator.share) {
+            navigator.share({
+                title: 'الإعلامي حسن رضوان',
+                text: 'تابع الإعلامي حسن رضوان على كافة المنصات:',
+                url: window.location.href
+            }).catch((error) => console.log('Error sharing', error));
+        } else {
+            alert('انسخ الرابط لمشاركته: ' + window.location.href);
+        }
+    });
+</script>
 
 </body>
 </html>
